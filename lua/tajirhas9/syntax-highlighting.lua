@@ -40,19 +40,18 @@ end, { silent = true })
 
 -- Custom fold expression function
 function CustomFoldExpr()
-    local lnum = vim.v.lnum -- Current line number
+    local lnum = vim.v.lnum           -- Current line number
     local line = vim.fn.getline(lnum) -- Get the current line's content
 
     -- Check for #region and #endregion
     if line:find("// #region") then
         return ">1" -- Start a new fold level
     elseif line:find("// #endregion") then
-        return "<1" -- End the fold level 
+        return "<1" -- End the fold level
     end
     -- Fallback to nvim-ufo's folding provider
     return vim.fn['nvim_treesitter#foldexpr']()
 end
-
 
 vim.o.foldcolumn = '1' -- '0' is not bad
 vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
@@ -74,8 +73,6 @@ vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith)
 vim.keymap.set('n', 'zK', function()
     local winid = require('ufo').peekFoldedLinesUnderCursor()
     if not winid then
-        -- choose one of coc.nvim and nvim lsp
-        vim.fn.CocActionAsync('definitionHover') -- coc.nvim
         vim.lsp.buf.hover()
     end
 end)

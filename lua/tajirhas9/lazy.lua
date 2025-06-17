@@ -54,10 +54,6 @@ require("lazy").setup({
     { 'akinsho/bufferline.nvim',  version = "*",     dependencies = 'nvim-tree/nvim-web-devicons' },
     -- { 'yamatsum/nvim-cursorline' },
     {
-        'neoclide/coc.nvim',
-        branch = 'release'
-    },
-    {
         'numToStr/Comment.nvim',
         opts = {
             -- add any options here
