@@ -9,6 +9,9 @@ local on_attach = function(client, bufnr)
     if client.name == "tsserver" then
         vim.cmd([[command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')]]) -- Format
     end
+    if client.name == 'dartls' then
+        vim.cmd([[command! -nargs=0 DartFormat :call CocAction('runCommand', 'dart.format')]]) -- Format
+    end
     if client.supports_method("textDocument/formatting") then
         vim.api.nvim_create_autocmd("BufWritePre", {
             group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = true }),

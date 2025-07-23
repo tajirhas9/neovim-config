@@ -1,7 +1,7 @@
 local on_attach = require('tajirhas9.lsp.config').on_attach
 local capabilities = require('tajirhas9.lsp.config').capabilities
 
-require("lspconfig").lua_ls.setup {
+local lua_ls_config = {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -12,3 +12,6 @@ require("lspconfig").lua_ls.setup {
         }
     }
 }
+
+
+vim.lsp.config('lua_ls', lua_ls_config)

@@ -1,10 +1,8 @@
-local lspconfig = require "lspconfig"
-local util = require "lspconfig/util"
 local on_attach = require('tajirhas9.lsp.config').on_attach
 local capabilities = require('tajirhas9.lsp.config').capabilities
 
 
-lspconfig.ts_ls.setup {
+local ts_ls_config = {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -36,9 +34,13 @@ lspconfig.ts_ls.setup {
         plugins = {
             {
                 name = '@vue/typescript-plugin',
-                location = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+                location = vim.fn.stdpath 'data' ..
+                    '/mason/packages/vue-language-server/node_modules/@vue/language-server',
                 languages = { 'vue' },
             },
         },
     },
 }
+
+
+vim.lsp.config('ts_ls', ts_ls_config)

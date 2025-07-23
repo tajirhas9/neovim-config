@@ -12,8 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
     {
         "neovim/nvim-lspconfig",
         dependencies = {
@@ -121,5 +119,27 @@ require("lazy").setup({
         dependencies = {
             "kevinhwang91/promise-async"
         }
+    },
+    -- flutter
+    {
+        'nvim-flutter/flutter-tools.nvim',
+        lazy = true,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim', -- optional for vim.ui.select
+        },
+        config = true,
+    },
+    -- DAP
+    {
+        "rcarriga/nvim-dap-ui",
+        config = true,
+        dependencies = {
+            "jay-babu/mason-nvim-dap.nvim",
+            "leoluz/nvim-dap-go",
+            "mfussenegger/nvim-dap-python",
+            "nvim-neotest/nvim-nio",
+            "theHamsta/nvim-dap-virtual-text",
+        },
     }
 })

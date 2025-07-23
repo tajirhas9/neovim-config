@@ -1,10 +1,8 @@
-local lspconfig = require "lspconfig"
-local util = require "lspconfig/util"
 local on_attach = require('tajirhas9.lsp.config').on_attach
 local capabilities = require('tajirhas9.lsp.config').capabilities
 
 
-lspconfig.vtsls.setup {
+local vtsls_config = {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -14,6 +12,15 @@ lspconfig.vtsls.setup {
         typescript = {
             tsserver = {
                 useSyntaxServer = false,
+                globalPlugins = {
+                    {
+                        name = '@vue/typescript-plugin',
+                        location = vim.fn.stdpath 'data' ..
+                            '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+                        languages = { 'vue' },
+                        configNamespace = 'typescript',
+                    },
+                },
             },
             inlayHints = {
                 includeInlayParameterNameHints = 'all',
@@ -33,12 +40,7 @@ lspconfig.vtsls.setup {
         "vue",
     },
     init_options = {
-        plugins = {
-            {
-                name = '@vue/typescript-plugin',
-                location = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
-                languages = { 'vue' },
-            },
-        },
     },
 }
+
+vim.lsp.config('vtsls', vtsls_config)
