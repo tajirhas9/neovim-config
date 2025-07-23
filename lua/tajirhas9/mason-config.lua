@@ -83,5 +83,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 --     end
 -- })
 require("tajirhas9.lsp.lua_ls")
-require("tajirhas9.lsp.tsserver")
+require("tajirhas9.lsp.vtsls")
+-- require("tajirhas9.lsp.tsserver")
 -- require("tajirhas9.lsp.volar")

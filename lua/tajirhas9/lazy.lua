@@ -101,7 +101,7 @@ require("lazy").setup({
             "nvim-lua/plenary.nvim",
             "hrsh7th/nvim-cmp",
         },
-        event = "BufEnter",
+        event = "InsertEnter",
     },
     {
         "github/copilot.vim",
