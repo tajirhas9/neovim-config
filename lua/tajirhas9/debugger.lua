@@ -5,11 +5,6 @@ local dapui = require('dapui')
 local FLUTTER_SDK_PATH = require("tajirhas9.constants").FLUTTER_SDK_PATH
 local DART_SDK_PATH = require("tajirhas9.constants").DART_SDK_PATH  
 
-if vim.loop.os_uname().sysname == "Windows_NT" then
-    FLUTTER_SDK_PATH = ""
-    DART_SDK_PATH = ""
-end
-
 -- Open dapui automatically when a new debug session is created
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
