@@ -1,6 +1,7 @@
 local FLUTTER_SDK_PATH = require("tajirhas9.constants").FLUTTER_SDK_PATH
 local DART_SDK_PATH = require("tajirhas9.constants").DART_SDK_PATH
 local FLUTTER_COMMAND = require('tajirhas9.constants').FLUTTER_COMMAND
+local DART_COMMAND = require('tajirhas9.constants').DART_COMMAND
 local on_attach = require('tajirhas9.lsp.config').on_attach
 local capabilities = require('tajirhas9.lsp.config').capabilities
 local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
@@ -34,7 +35,7 @@ require("flutter-tools").setup {
 
             dap.adapters.dart = {
                 type = 'executable',
-                command = 'dart', -- if you're using fvm, you'll need to provide the full path to dart (dart.exe for windows users), or you could prepend the fvm command
+                command = DART_COMMAND, -- if you're using fvm, you'll need to provide the full path to dart (dart.exe for windows users), or you could prepend the fvm command
                 args = { 'debug_adapter' },
                 -- windows users will need to set 'detached' to false
                 options = {
