@@ -6,7 +6,7 @@ local mason_lspconfig = require("mason-lspconfig")
 
 local on_attach = function(client, bufnr)
     -- format on save
-    if client.name == "tsserver" then
+    if client.name == "vtsls" then
         vim.cmd([[command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')]]) -- Format
     end
     if client.name == 'dartls' then
@@ -29,7 +29,8 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
-    lineFoldingOnly = true
+    lineFoldingOnly = true,
+    rangeLimit = 5000
 }
 
 return {

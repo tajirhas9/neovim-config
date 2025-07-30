@@ -1,35 +1,26 @@
 local on_attach = require('tajirhas9.lsp.config').on_attach
 local capabilities = require('tajirhas9.lsp.config').capabilities
+local join_path = require('tajirhas9.constants').join_path
 
-local vue_ls_config =  {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    on_init = function(client)
-        client.handlers['tsserver/request'] = function(_, result, context)
-            local clients = vim.lsp.get_clients({ bufnr = context.bufnr, name = 'vtsls' })
-            if #clients == 0 then
-                vim.notify('Could not find `vtsls` lsp client, `vue_ls` would not work without it.', vim.log.levels
-                .ERROR)
-                return
-            end
-            local ts_client = clients[1]
-
-            local param = table.unpack(result)
-            local id, command, payload = table.unpack(param)
-            ts_client:exec_cmd({
-                title = 'vue_request_forward', -- You can give title anything as it's used to represent a command in the UI, `:h Client:exec_cmd`
-                command = 'typescript.tsserverRequest',
-                arguments = {
-                    command,
-                    payload,
-                },
-            }, { bufnr = context.bufnr }, function(_, r)
-                local response_data = { { id, r.body } }
-                ---@diagnostic disable-next-line: param-type-mismatch
-                client:notify('tsserver/response', response_data)
-            end)
-        end
+local vue_ls_config = {
+    on_attach = function(client, bufnr)
+        client.server_capabilities.semanticTokensProvider.full = true
+       on_attach(client, bufnr)  -- Call your original on_attach
     end,
+    capabilities = capabilities,
+    settings = {
+        typescript = {
+            tsdk = vim.fn.getcwd() .. join_path('node_modules', 'typescript', 'lib')
+        },
+        vue = {
+            codeLens = {
+                references = true,
+                pugReferences = true,
+                scriptSetupSupport = true,
+            },
+        },
+    },
 }
 
 vim.lsp.config('vue_ls', vue_ls_config)
+vim.lsp.enable({'vtsls', 'vue_ls'})

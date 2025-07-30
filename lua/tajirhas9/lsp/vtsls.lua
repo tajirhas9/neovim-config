@@ -1,36 +1,26 @@
 local on_attach = require('tajirhas9.lsp.config').on_attach
 local capabilities = require('tajirhas9.lsp.config').capabilities
-
+local join_path = require('tajirhas9.constants').join_path
 
 local vtsls_config = {
-    on_attach = on_attach,
+    on_attach = on_attach,  -- Call your original on_attach
     capabilities = capabilities,
     settings = {
         completions = {
             completeFunctionCalls = true
         },
-        typescript = {
+        vtsls = {
             tsserver = {
-                useSyntaxServer = false,
                 globalPlugins = {
                     {
                         name = '@vue/typescript-plugin',
                         location = vim.fn.stdpath 'data' ..
-                            '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+                            join_path('mason', 'packages', 'vue-language-server', 'node_modules', '@vue', 'language-server'),
                         languages = { 'vue' },
                         configNamespace = 'typescript',
+                        enableForWorkspaceTypeScriptVersions = true,
                     },
                 },
-            },
-            inlayHints = {
-                includeInlayParameterNameHints = 'all',
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
             },
         },
     },
@@ -39,8 +29,8 @@ local vtsls_config = {
         "typescript",
         "vue",
     },
-    init_options = {
-    },
+    -- init_options = {
+    -- },
 }
 
 vim.lsp.config('vtsls', vtsls_config)

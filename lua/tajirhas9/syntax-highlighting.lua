@@ -10,7 +10,7 @@ require 'nvim-treesitter.configs'.setup {
     highlight = {
         enable = true,
     },
-    fold = {
+    folding = {
         enable = true,
         disable = { 'vue' }, -- Add filetypes here if you want to disable folding for specific languages
     }
