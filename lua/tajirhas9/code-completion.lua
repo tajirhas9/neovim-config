@@ -71,9 +71,13 @@ local configCodeium = function()
     -- vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
     local codeium = require("codeium")
     codeium.setup({
-        key_bindings = {
-            accept = '<leader><Tab>'
-        }
+        virtual_text = {
+            enabled = true,
+            key_bindings = {
+                accept = '<leader><Tab>'
+            }
+
+        },
     })
 
     -- disable tab
@@ -88,6 +92,6 @@ local configCopilot = function()
     vim.g.copilot_no_tab_map = true
 end
 
--- configCodeium()
+configCodeium()
 
-configCopilot()
+-- configCopilot()
