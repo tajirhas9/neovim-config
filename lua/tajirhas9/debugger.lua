@@ -27,6 +27,8 @@ vim.keymap.set('n', '<Leader>lp',
     function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
 vim.keymap.set('n', '<Leader>dr', function() dap.repl.toggle() end)
 vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end)
+-- reset dapui
+vim.keymap.set('n', '<Leader>dut', function() dapui.toggle({ reset = true }) end)
 vim.keymap.set({ 'n', 'v' }, '<Leader>dh', function()
     require('dap.ui.widgets').hover()
 end)
