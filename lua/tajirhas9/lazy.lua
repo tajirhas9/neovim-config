@@ -105,6 +105,9 @@ require("lazy").setup({
         "github/copilot.vim",
         event = "InsertEnter",
     },
+    {
+        "mbbill/undotree"
+    },
 
     -- Show current code context
     {
