@@ -82,6 +82,10 @@ local configCodeium = function()
 
     -- disable tab
     vim.g.codeium_no_map_tab = true
+
+    require('codeium.util').get_newline = function ()
+      return "\n"
+    end
 end
 
 local configCopilot = function()
