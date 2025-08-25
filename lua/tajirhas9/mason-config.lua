@@ -83,6 +83,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 --         })
 --     end
 -- })
+
+require("lspconfig").eslint.setup({
+  settings = {
+    enable = true,
+  },
+})
+
 require("tajirhas9.lsp.lua_ls")
 require("tajirhas9.lsp.vtsls")
 require("tajirhas9.lsp.vue_ls")

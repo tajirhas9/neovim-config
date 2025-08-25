@@ -6,6 +6,13 @@ vim.o.expandtab = true       -- Pressing the TAB key will insert spaces instead 
 vim.o.softtabstop = 4        -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4         -- Number of spaces inserted when indenting
 
+
+if vim.fn.has('nvim-0.12') == 1 then
+  vim.o.diffopt = 'internal,filler,closeoff,inline:word,linematch:40'
+elseif vim.fn.has('nvim-0.11') == 1 then
+  vim.o.diffopt = 'internal,filler,closeoff,linematch:40'
+end
+
 vim.g.mapleader = ' '
 local map = vim.api.nvim_set_keymap
 
