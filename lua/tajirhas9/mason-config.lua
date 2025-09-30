@@ -84,7 +84,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 --     end
 -- })
 
-require("lspconfig").eslint.setup({
+vim.lsp.config('eslint', {
   settings = {
     enable = true,
   },

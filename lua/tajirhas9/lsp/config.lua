@@ -1,4 +1,3 @@
-local nvim_lsp = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 
 -- Show current code context
