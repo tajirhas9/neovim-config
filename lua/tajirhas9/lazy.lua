@@ -80,7 +80,7 @@ require("lazy").setup({
         opts = {},
     },
     -- { "EdenEast/nightfox.nvim",     priority = 1000, config = true, opts = {} },
-    { "ellisonleao/gruvbox.nvim", priority = 1000,   config = true,                               opts = ... },
+    -- { "ellisonleao/gruvbox.nvim", priority = 1000,   config = true,                               opts = ... },
     -- {
     --     "navarasu/onedark.nvim",
     --     dependencies = {
@@ -140,6 +140,7 @@ require("lazy").setup({
     -- DAP
     {
         "rcarriga/nvim-dap-ui",
+        event = "VeryLazy",
         config = true,
         dependencies = {
             "jay-babu/mason-nvim-dap.nvim",
