@@ -24,8 +24,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<space>wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, opts)
-        vim.keymap.set('n', '<leader>ds', ':lua require"telescope.builtin".lsp_document_symbols()<CR>', opts)
-        vim.keymap.set('n', '<leader>ws', ':lua require"telescope.builtin".lsp_workspace_symbols()<CR>', opts)
+        vim.keymap.set('n', '<leader>ds', ':lua require"fzf-lua".lsp_document_symbols()<CR>', opts)
+        vim.keymap.set('n', '<leader>ws', ':lua require"fzf-lua".lsp_workspace_symbols()<CR>', opts)
         vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts) -- Rename the variable. replaces all the variable names with the renamed one
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
@@ -85,14 +85,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- })
 
 vim.lsp.config('eslint', {
-  settings = {
-    enable = true,
-  },
+    settings = {
+        enable = true,
+    },
 })
 
 require("tajirhas9.lsp.lua_ls")
 require("tajirhas9.lsp.vtsls")
-require("tajirhas9.lsp.vue_ls")
+-- require("tajirhas9.lsp.vue_ls")
 require('tajirhas9.lsp.flutter')
 -- require("tajirhas9.lsp.tsserver")
 -- require("tajirhas9.lsp.volar")
