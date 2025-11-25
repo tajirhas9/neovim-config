@@ -53,7 +53,7 @@ require("lazy").setup({
         -- use opts = {} for passing setup options
         -- this is equalent to setup({}) function
     },
-    { 'akinsho/bufferline.nvim',  version = "*",     dependencies = 'nvim-tree/nvim-web-devicons' },
+    { 'akinsho/bufferline.nvim', version = "*",     dependencies = 'nvim-tree/nvim-web-devicons' },
     -- { 'yamatsum/nvim-cursorline' },
     {
         'numToStr/Comment.nvim',
@@ -88,9 +88,9 @@ require("lazy").setup({
     --     }
     -- },
     --#######################
-    { "sindrets/diffview.nvim",   event = "VeryLazy" },
+    { "sindrets/diffview.nvim",  event = "VeryLazy" },
     {
-        "norcalli/nvim-colorizer.lua",
+        "tajirhas9/nvim-colorizer.lua",
         event = "VeryLazy",
     },
     {
