@@ -24,6 +24,15 @@
 -- vim.keymap.set('n', '<leader>fb',
 --     ':lua require"telescope.builtin".find_files({ cwd = require"telescope.utils".buffer_dir() })<CR>', {})
 
+require('fzf-lua').setup({
+    keymap = {
+        -- These override the default fzf internal keymaps
+        fzf = {
+            ["tab"]       = "down",
+            ["shift-tab"] = "up",
+        }
+    },
+})
 
 vim.keymap.set('n', '<leader>ff', ':lua require"fzf-lua".files()<CR>', {})
 vim.keymap.set('n', '<leader>fg', ':lua require"fzf-lua".live_grep()<CR>', {})
