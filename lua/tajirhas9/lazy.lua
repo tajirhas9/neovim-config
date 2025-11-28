@@ -144,5 +144,9 @@ require("lazy").setup({
             "nvim-neotest/nvim-nio",
             "theHamsta/nvim-dap-virtual-text",
         },
-    }
+    },
+    {
+        "vuki656/package-info.nvim",
+        event = { 'BufReadPre', 'BufNewFile' }
+    },
 })
