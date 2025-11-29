@@ -1,3 +1,8 @@
+P = function(v)
+    print(vim.inspect(v))
+    return v
+end
+
 local FLUTTER_SDK_PATH = "/Users/tajirhas9/development/flutter/bin/flutter"
 local DART_SDK_PATH = "/Users/tajirhas9/development/flutter/bin/cache/dart-sdk/bin/dart"
 local FLUTTER_COMMAND = 'flutter'
