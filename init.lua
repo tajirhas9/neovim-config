@@ -1,7 +1,7 @@
 require("tajirhas9.constants")
-require("tajirhas9.core")
 require("tajirhas9.lazy")
 require("tajirhas9.plugins")
+require("tajirhas9.core")
 require("tajirhas9.debugger")
 require("tajirhas9.mason-config")
 require("tajirhas9.code-completion")

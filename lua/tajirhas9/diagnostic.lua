@@ -38,7 +38,6 @@ vim.diagnostic.config({
 
 -- Expose the module functions
 local diagnostic = M
-diagnostic.setup()
 
 function LspDiagnosticsFocus()
     vim.api.nvim_command('set eventignore=WinLeave')
@@ -49,17 +48,24 @@ end
 
 vim.api.nvim_set_keymap('', '<leader>dd', '<Cmd>lua LspDiagnosticsFocus()<CR>', { silent = true })
 
-require('package-info').setup({})
 
--- vim.api.nvim_create_autocmd("BufEnter", {
---     pattern = "package.json",
---     callback = function()
---         vim.defer_fn(function()
---             require("package-info").show()
---         end, 100)
---     end,
---     desc = "Show package info when opening package.json"
--- })
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = { '*' },
+    callback = function()
+        diagnostic.setup()
+    end
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = require "tajirhas9.constants".load_plugins_group,
+    pattern = "package.json",
+    callback = function()
+        vim.defer_fn(function()
+            require('package-info').setup({})
+        end, 100)
+    end,
+    desc = "Show package info when opening package.json"
+})
 
 local package_json_group = vim.api.nvim_create_augroup("PackageJsonKeymaps", { clear = true })
 

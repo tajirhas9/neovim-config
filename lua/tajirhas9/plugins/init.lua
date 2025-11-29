@@ -1,7 +1,3 @@
-require('nvim-autopairs').setup({
-    disable_filetype = { "TelescopePrompt", "vim" },
-})
-
 vim.opt.termguicolors = true
 require("bufferline").setup {
     options = {
@@ -20,5 +16,14 @@ require("bufferline").setup {
 --         hl = { underline = true },
 --     }
 -- }
-require("Comment").setup()
-require("colorizer").setup({ '*' })
+
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNew' }, {
+    group = require "tajirhas9.constants".load_plugins_group,
+    callback = function()
+        require("Comment").setup()
+        require("colorizer").setup({ '*' })
+        require('nvim-autopairs').setup({
+            disable_filetype = { "TelescopePrompt", "vim" },
+        })
+    end
+})

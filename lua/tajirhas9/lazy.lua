@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     {
         "neovim/nvim-lspconfig",
-        event = { 'BufReadPre', 'BufNewFile' },
+        event = { 'BufRead', 'BufNew' },
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
@@ -27,6 +27,7 @@ require("lazy").setup({
     { "hrsh7th/cmp-buffer",                  event = "InsertEnter" },
     {
         "nvim-neo-tree/neo-tree.nvim",
+        event = "VeryLazy",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
@@ -37,7 +38,7 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     {
         "nvim-treesitter/nvim-treesitter", --, build = ":TSUpdate"
-        event = { 'BufReadPre', 'BufNewFile' }
+        event = { 'BufRead', 'BufNew' }
     },
     {
         "ibhagwan/fzf-lua",
@@ -51,16 +52,16 @@ require("lazy").setup({
         -- use opts = {} for passing setup options
         -- this is equalent to setup({}) function
     },
-    { 'akinsho/bufferline.nvim', version = "*",                         dependencies = 'nvim-tree/nvim-web-devicons' },
+    { 'akinsho/bufferline.nvim', version = "*",     dependencies = 'nvim-tree/nvim-web-devicons' },
     -- { 'yamatsum/nvim-cursorline' },
     {
         'numToStr/Comment.nvim',
-        event = { 'BufReadPre', 'BufNewFile' },
+        event = { 'BufRead', 'BufNew' },
         opts = {
             -- add any options here
         },
     },
-    { "lewis6991/gitsigns.nvim", event = { 'BufReadPre', 'BufNewFile' } },
+    { "lewis6991/gitsigns.nvim", event = 'VeryLazy' },
     { "tpope/vim-fugitive",      event = "VeryLazy" },
     --######################
     -- Themes
@@ -80,10 +81,10 @@ require("lazy").setup({
     --     }
     -- },
     --#######################
-    { "sindrets/diffview.nvim", event = "VeryLazy" },
+    { "sindrets/diffview.nvim",                  event = "VeryLazy" },
     {
         "tajirhas9/nvim-colorizer.lua",
-        event = { 'BufReadPre', 'BufNewFile' },
+        event = { 'BufRead', 'BufNew' },
     },
     {
         "kkoomen/vim-doge",
@@ -103,21 +104,21 @@ require("lazy").setup({
     -- },
     {
         "mbbill/undotree",
-        event = { 'BufReadPre', 'BufNewFile' }
+        event = { 'BufRead', 'BufNew' }
     },
 
     -- Show current code context
     {
         "SmiteshP/nvim-navic",
-        event = { 'BufReadPre', 'BufNewFile' },
+        event = { 'BufRead', 'BufNew' },
         dependencies = {
             "neovim/nvim-lspconfig"
         }
     },
-    "nvim-treesitter/nvim-treesitter-context",
-    event = { 'BufReadPre', 'BufNewFile' },
+    { "nvim-treesitter/nvim-treesitter-context", event = "VeryLazy" },
     {
         "kevinhwang91/nvim-ufo",
+        event = "VeryLazy",
         dependencies = {
             "kevinhwang91/promise-async"
         }
@@ -125,7 +126,7 @@ require("lazy").setup({
     -- flutter
     {
         'nvim-flutter/flutter-tools.nvim',
-        event = { 'BufReadPre', 'BufNewFile' },
+        event = { 'BufRead', 'BufNew' },
         dependencies = {
             'nvim-lua/plenary.nvim',
             'stevearc/dressing.nvim', -- optional for vim.ui.select
@@ -135,7 +136,7 @@ require("lazy").setup({
     -- DAP
     {
         "rcarriga/nvim-dap-ui",
-        event = { 'BufReadPre', 'BufNewFile' },
+        event = { 'BufRead', 'BufNew' },
         config = true,
         dependencies = {
             "jay-babu/mason-nvim-dap.nvim",
@@ -147,6 +148,6 @@ require("lazy").setup({
     },
     {
         "vuki656/package-info.nvim",
-        event = { 'BufReadPre', 'BufNewFile' }
+        event = { 'BufRead', 'BufNew' }
     },
 })

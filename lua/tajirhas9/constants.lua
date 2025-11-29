@@ -22,10 +22,13 @@ local function join_path(...)
     return '/' .. table.concat(result, separator)
 end
 
+local load_plugins_group = vim.api.nvim_create_augroup('load_plugins', { clear = true })
+
 return {
     FLUTTER_SDK_PATH = FLUTTER_SDK_PATH,
     DART_SDK_PATH = DART_SDK_PATH,
     FLUTTER_COMMAND = FLUTTER_COMMAND,
     DART_COMMAND = DART_COMMAND,
     join_path = join_path,
+    load_plugins_group = load_plugins_group,
 }
