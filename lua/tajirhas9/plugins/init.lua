@@ -1,9 +1,9 @@
 vim.opt.termguicolors = true
-require("bufferline").setup {
-    options = {
-        numbers = "buffer_id",
-    }
-}
+-- require("bufferline").setup {
+--     options = {
+--         numbers = "buffer_id",
+--     }
+-- }
 -- require('nvim-cursorline').setup {
 --     cursorline = {
 --         enable = false,

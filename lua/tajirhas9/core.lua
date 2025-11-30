@@ -29,8 +29,8 @@ map('n', '<M-Right>', '<C-i>', { noremap = true, silent = true })
 -- cursor to center when scrolling
 map('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
 map('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
-map('n', '<C-[>', '<CMD>BufferLineCyclePrev<CR>', { noremap = true, silent = true })
-map('n', '<C-]>', '<CMD>BufferLineCycleNext<CR>', { noremap = true, silent = true })
+-- map('n', '<C-[>', '<CMD>BufferLineCyclePrev<CR>', { noremap = true, silent = true })
+-- map('n', '<C-]>', '<CMD>BufferLineCycleNext<CR>', { noremap = true, silent = true })
 map('n', '<Esc>', '<CMD><CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 

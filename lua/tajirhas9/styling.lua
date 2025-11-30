@@ -99,14 +99,15 @@ require("lualine").setup({
         theme = bubbles_theme,
         component_separators = '',
         section_separators = { left = '', right = '' },
+        always_show_tabline = true,
     },
     sections = {
-        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+        lualine_a = { { 'mode', icons_enabled = true, separator = { left = '' }, right_padding = 2 } },
         lualine_b = { { 'filename', path = 1 }, 'branch' },
         lualine_c = {
-            { clients_lsp, diagnostics, }
+            { clients_lsp }
         },
-        lualine_x = {},
+        lualine_x = { { 'datetime', style = 'default' } },
         lualine_y = { 'filetype', 'progress' },
         lualine_z = {
             { 'location', separator = { right = '' }, left_padding = 2 },
@@ -120,7 +121,22 @@ require("lualine").setup({
         lualine_y = {},
         lualine_z = { 'location' },
     },
-    tabline = {},
+    tabline = {
+        lualine_a = { { 'buffers', mode = 4, color = { fg = colors.white, bg = colors.black }, separator = { right = '' } } },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = { 'branch' },
+        lualine_z = { 'buffer' }
+    },
+    inactive_tabline = {
+        lualine_a = { 'buffers', mode = 4 },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+    },
     extensions = {},
 })
 
