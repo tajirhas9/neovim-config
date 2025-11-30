@@ -150,4 +150,7 @@ require("lazy").setup({
         "vuki656/package-info.nvim",
         event = { 'BufRead', 'BufNew' }
     },
+    {
+        dir = "~/Work/neovim/plugins/muslim.nvim"
+    }
 })

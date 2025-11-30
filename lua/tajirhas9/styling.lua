@@ -94,6 +94,13 @@ local clients_lsp = function()
     return '\u{f085} ' .. table.concat(c, '|')
 end
 
+local muslim = require("muslim")
+muslim.setup({
+    latitude = '22.368122200492397',
+    longitude = '91.83082060378923',
+    timezone = 'Asia/Dhaka'
+})
+
 require("lualine").setup({
     options = {
         theme = bubbles_theme,
@@ -107,7 +114,7 @@ require("lualine").setup({
         lualine_c = {
             { clients_lsp }
         },
-        lualine_x = { { 'datetime', style = 'default' } },
+        lualine_x = { { 'datetime', style = 'default' }, muslim.prayer_time },
         lualine_y = { 'filetype', 'progress' },
         lualine_z = {
             { 'location', separator = { right = '' }, left_padding = 2 },
