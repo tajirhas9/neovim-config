@@ -80,12 +80,12 @@ M.setup = function()
     end)
 end
 
--- M.setup()
+M.setup()
 
-vim.api.nvim_create_autocmd({ 'FileReadPre' }, {
-    group = require("tajirhas9.constants").load_plugins_group,
-    pattern = { '*' },
-    callback = function()
-        M.setup()
-    end
-})
+-- vim.api.nvim_create_autocmd({ 'FileReadPre' }, {
+--     group = require("tajirhas9.constants").load_plugins_group,
+--     pattern = { '*' },
+--     callback = function()
+--         M.setup()
+--     end
+-- })
