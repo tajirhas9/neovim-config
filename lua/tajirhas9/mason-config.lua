@@ -96,6 +96,7 @@ M.setup = function()
     require("tajirhas9.lsp.vtsls")
     -- require("tajirhas9.lsp.vue_ls")
     require('tajirhas9.lsp.flutter')
+    require("tajirhas9.lsp.python")
     -- require("tajirhas9.lsp.tsserver")
     -- require("tajirhas9.lsp.volar")
 end

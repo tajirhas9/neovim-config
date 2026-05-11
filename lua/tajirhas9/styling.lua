@@ -100,7 +100,8 @@ muslim.setup({
     longitude = 91.83082060378923,
     -- timezone = 'Asia/Dhaka',
     utc_offset = 6,
-    refresh = 5
+    refresh = 5,
+    -- time_format = '24H'
 })
 
 require("lualine").setup({

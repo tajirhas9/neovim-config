@@ -151,6 +151,6 @@ require("lazy").setup({
         event = { 'BufRead', 'BufNew' }
     },
     {
-        dir = "~/Work/neovim/plugins/muslim.nvim"
+        dir = "~/Documents/work/neovim/plugins/muslim.nvim"
     }
 })
